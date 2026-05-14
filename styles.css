@@ -1,0 +1,90 @@
+fieldset { display:inline-block; }
+form > div { text-align:center; }
+
+a {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+h1 {
+  color: #F7F7FF;
+}
+
+body {
+    background-color: #06070d;
+    font-family: 'Arial', sans-serif;
+
+  }
+
+
+body{
+  padding: 25px;
+  text-align: center
+}
+.title {
+	color: #F7F7FF;
+}
+
+.menu button { /*change button details for main page and skins page*/
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #1b1b3a;
+  color: #F7F7FF;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin: 10px 10px;
+  font-family: 'Arial', sans-serif;
+ font-size: 20px;
+}
+.menu button:hover {
+  background-color: #FF2E88 ;
+  color: #F7F7FF;
+}
+/*RETURN BUTTON*/
+ .menu-form { 
+    position: fixed;
+    top: 55px;
+    left: 50px;
+    margin: 0;
+  }
+  
+.menu-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-button img{
+  width: 50px;
+  height: 50px;
+}
+
+/*FULL SCREEN BUTTON*/
+.fullscreen{
+  position: fixed;
+    top: 55px;
+    right: 50px;
+    margin: 0;
+}
+
+.skins {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.skins img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+
