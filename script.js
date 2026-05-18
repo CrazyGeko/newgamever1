@@ -51,8 +51,8 @@ let ballSpeedIncreaseInterval;
   function resetBall() {
     ballX = gameContainer.clientWidth / 2 - ball.clientWidth / 2;
     ballY = gameContainer.clientHeight / 2 - ball.clientHeight / 2;
-    ballSpeedX = 4 * (Math.random() < 0.5 ? 1 : -1)
-    ballSpeedY = 4 * (Math.random() < 0.5 ? 1 : -1)
+    ballSpeedX = 4 * (Math.random() < 0.5 ? 1 : -1);
+    ballSpeedY = 4 * (Math.random() < 0.5 ? 1 : -1);
   }
 
   function resetPlayers() {
@@ -87,7 +87,7 @@ let ballSpeedIncreaseInterval;
   }
 
   function resetGame() {
-    lefScore = 0;
+    leftScore = 0;
     rightScore = 0;
     updateScores();
     winnerMessage.style.display = 'none';
@@ -103,12 +103,12 @@ let ballSpeedIncreaseInterval;
     if (ballSpeedX > 0 ){
       ballSpeedX += 0.2;
     } else {
-      ballSpeedX -= -0.2
+      ballSpeedX -= 0.2;
     }
     if (ballSpeedY > 0 ){
-      ballSpeedX += 0.2;
+      ballSpeedY += 0.2;
     } else {
-      ballSpeedY -= -0.2
+      ballSpeedY -= 0.2;
     }
   }
 
@@ -141,9 +141,13 @@ let ballSpeedIncreaseInterval;
       ballSpeedY *= -1;
     }
     
-     if (ballX <= leftPlayer.clientWidth && ballY + ball.clientHeight >= leftPlayerY && ballY <= leftPlayerY + paddleHeight) {
+     if (ballX <= leftPlayer.clientWidth && ballY + ball.clientHeight >= leftPlayerY && ballY <= leftPlayerY + leftPlayer.clientHeight) {
       ballSpeedX *= -1;
     }
+    
+    leftPlayerY += leftPlayerSpeed;
+    rightPlayerY += rightPlayerSpeed;
+    
     
     if (ballX <= 0) {
       rightScore++;
@@ -157,20 +161,25 @@ let ballSpeedIncreaseInterval;
       resetBall();
     }
     
-    ball.style.left = '${ballX}px';
-    ball.style.top = '${ballY}px';
+    if (ballX + ball.clientWidth >= gameContainer.clientWidth - rightPlayer.clientWidth && 
+    ballY + ball.clientHeight >= rightPlayerY && 
+    ballY <= rightPlayerY + playerHeight) {
+    ballSpeedX *= -1;
+    }
     
-    leftPlayerY += leftPlayerSpeed;
-    rightPlayerY += rightPlayerSpeed;
+    
+    ball.style.left = `${ballX}px`;
+    ball.style.top = `${ballY}px`;
+
+   
     
     if (leftPlayerY < 0) leftPlayerY = 0;
     if (leftPlayerY > gameContainer.clientHeight - playerHeight) leftPlayerY = gameContainer.clientHeight - playerHeight;
     if (rightPlayerY < 0) rightPlayerY = 0;
     if (rightPlayerY > gameContainer.clientHeight - playerHeight) rightPlayerY = gameContainer.clientHeight - playerHeight;
     
-    leftPlayer.style.top = '${leftPlayerY}px';
-    rightPlayer.style.top = '${rightPlayerY}px';
-    
+    leftPlayer.style.top = `${leftPlayerY}px`;
+    rightPlayer.style.top = `${rightPlayerY}px`;    
     updateScores();
     
     requestAnimationFrame(gameLoop);
