@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="styles.css" />
-  <body>
-      <h1>Game Page</h1>
+  
+  <link rel="stylesheet" href="gameStyles.css" />
 
   
   <form action="index.html" class="menu-form">
@@ -17,8 +16,23 @@
     </button>
   </form>
   
-   <h1>Game page not implemented yet</h1>
   
-<script src="script.js"></script>
-</body>
+  
+  <body>
+    <div class="game-container">
+      <div class="score-board">
+        <div id="leftScore">0</div>
+        <div id="rightScore">0</div>
+      </div>
+      <div class="ball" id="ball"></div>\
+      <div class="player left-player" id="leftPlayer"></div>
+      <div class="player right-player" id="rightPlayer"></div>
+      <div class="winner-message" id="winnerMessage"></div>
+    </div>
+    <button id"restartButton">Restart</button>
+    <script src="script.js"></script>
+  </body>
+
+
+
 </html>

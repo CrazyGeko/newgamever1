@@ -39,6 +39,7 @@ body{
   font-family: 'Arial', sans-serif;
  font-size: 20px;
 }
+
 .menu button:hover {
   background-color: #FF2E88 ;
   color: #F7F7FF;
